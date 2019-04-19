@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Cne_vote</string>
+
+    <string name="ingresar_main_activity">INGRESAR</string>
+    <string name="ayuda_main_activity">AYUDA</string>
+
+    <string name="label_cedula_validar_cedula">NRO. CEDULA</string>
+    <string name="hint_cedula_validar_cedula">0402009309</string>
+    <string name="verificar_cedula_validar_cedula">Verificar</string>
+
+    <string name="label_cedula_validar_datos">Cedula:</string>
+    <string name="label_nombres_validar_datos">Nombres:</string>
+    <string name="label_apellidos_validar_datos">Apellidos:</string>
+    <string name="label_codigo_validar_datos">Codigo:</string>
+    <string name="label_clave_validar_datos">Clave:</string>
+    <string name="ingresar_validar_datos">Comenzar</string>
+ssss
+    <string name="label_presidente_inicio_votacion">CANDIDATOS A PRESIDENTES</string>
+    <string name="label_nombre_inicio_votacion">NOMBRE</string>
+    <string name="label_partido_inicio_votacion">PARTIDO</string>
+    <string name="label_imagen_inicio_votacion">IMAGEN</string>
+    <string name="enviar_voto__inicio_votacion">VOTAR</string>
+
+    <string name="string_vacia"> </string>
+    <string name="descripcion_img">imagen</string>
+    <string name="string_test">Test</string>
+    <string name="action_settings">Settings</string>
+</resources>

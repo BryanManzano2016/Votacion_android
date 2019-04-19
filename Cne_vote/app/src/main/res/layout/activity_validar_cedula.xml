@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cedula_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Validar_cedula">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content_validar_cedula"
+        android:layout_width="355dp"
+        android:layout_height="564dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111">
+
+        <EditText
+            android:id="@+id/input_cedula_2"
+            android:layout_width="282dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_cedula_validar_cedula"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.474"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_cedula_2"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:id="@+id/imagen_buscar"
+            android:layout_width="177dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/descripcion_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/validar" />
+
+        <TextView
+            android:id="@+id/label_cedula_2"
+            android:layout_width="293dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/label_cedula_validar_cedula"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagen_buscar" />
+
+        <Button
+            android:id="@+id/boton_validar_2"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="verificar_cedula"
+            android:text="@string/verificar_cedula_validar_cedula"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_cedula_2" />
+
+        <TextView
+            android:id="@+id/alerta_texto_2"
+            android:layout_width="327dp"
+            android:layout_height="126dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="#23ce6b"
+            android:text="@string/string_vacia"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/boton_validar_2"
+            tools:background="@android:color/holo_blue_bright" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

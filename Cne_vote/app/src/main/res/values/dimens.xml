@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_text_plain_1">250dp</dimen>
+    <dimen name="height_text_plain_1">30dp</dimen>
+    <dimen name="width_text_view_1">100dp</dimen>
+    <dimen name="height_text_view_1">30dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+</resources>
