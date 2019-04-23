@@ -127,6 +127,7 @@ public class Conexion_db {
 
             return datos;
         }        
+        
         // Valida los datos que permiten votar al usuario
         public int validar_datos_votante(String cedula, String clave, String codigo_cne){
             // Nombres y apellidos en string
@@ -161,7 +162,8 @@ public class Conexion_db {
 
             return validar;
         }  
-
+        
+        // Entrega los candidatos, es ejecutado en conjunto con validar_datos_votante
         public ArrayList obtener_datos_candidatos(){
             // Nombres y apellidos en string
             
@@ -198,6 +200,34 @@ public class Conexion_db {
             return lista_candidatos;
         }         
         
+        //  Inserta en la db el voto con su validacion
+        public int validar_votacion(String cedula, String codigo_candidato){
+            
+            int validar = 0;
+                        
+            iniciar_conexion();
+
+            if (this.conexion != null){
+
+                try{
+                    
+                    this.statement = conexion.prepareCall( "{call realizar_voto(?, ?)}" );
+                    
+                    this.statement.setString(1, cedula);
+                    this.statement.setInt(2, Integer.parseInt( codigo_candidato ));
+                    this.statement.execute();
+                    
+                    validar = 1;
+                    
+                }catch(SQLException ex){}
+
+            }
+
+            anular_puentes();
+            
+            
+            return validar;
+        }
 
 }
 // '072', 'Doris Boris', 'Anton Soria', '0', 'yMvXX9tWL!j3', '6'

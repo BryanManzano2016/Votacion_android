@@ -58,6 +58,8 @@ public class Conectar extends Thread{
 
                 iniciar_conexion_db();
                 
+                System.out.println(objecto_recibir.getString("peticion"));
+                
                 switch ( objecto_recibir.getString("peticion") ) {
                     
                     case "verificar_cedula_votante":
@@ -96,6 +98,19 @@ public class Conectar extends Thread{
                             }
                             // Al objeto que se envia se añade el jsonArray
                             objecto_enviar.put("candidatos", lista_candidatos);
+                        }
+                        break;
+                        
+                    case "realizar_votacion_cne":
+                        String cedula_4 = objecto_recibir.getString("cedula");
+                        String palabra_clave_4 = objecto_recibir.getString("palabra_clave");
+                        String codigo_4 = objecto_recibir.getString("codigo");
+                        String codigo_candidato_4 = objecto_recibir.getString("codigo_candidato");
+                        
+                        validar = this.conector_db.validar_datos_votante( cedula_4, palabra_clave_4, codigo_4);
+                        
+                        if ( validar == 1){
+                            validar = this.conector_db.validar_votacion(cedula_4, codigo_candidato_4);
                         }
                         break;
                         
