@@ -35,7 +35,7 @@ public class Validar_cedula extends AppCompatActivity {
             new validar_cedula().execute( this.cedula_votante.getText().toString() );
         }
     }
-    public void iniciar_elementos(){
+    private void iniciar_elementos(){
         cedula_votante = findViewById( R.id.input_cedula_2 );
         mensaje = findViewById( R.id.alerta_texto_2 );
     }
@@ -52,10 +52,15 @@ public class Validar_cedula extends AppCompatActivity {
     // Cambio activity
     private void iniciar_validar_datos(String[] datos){
         if ( datos[0].length() == 0 ){
-            String[] datos_i = { datos[1], datos[2], datos[3] };
-            Intent intent = new Intent(this, Validar_datos.class );
-            intent.putExtra( EXTRA_MESSAGE, datos_i );
-            startActivity(intent);
+            if( datos[4].equals("1")){
+                mensaje.setText( R.string.votacion_finalizada );
+            } else {
+                String[] datos_i = {datos[1], datos[2], datos[3]};
+                Intent intent = new Intent(this, Validar_datos.class);
+                intent.putExtra(EXTRA_MESSAGE, datos_i);
+                startActivity(intent);
+                finish();
+            }
         } else {
             mensaje.setText(datos[0]);
         }

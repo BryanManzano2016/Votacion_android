@@ -42,11 +42,10 @@ public class Validar_datos extends AppCompatActivity {
     }
     // Evento
     public void verificar_datos(View view) {
-        /*new validar_datos().execute( this.cedula_votante.getText().toString(), this.clave_votante.getText().toString(),
-                this.codigo_cne_votante.getText().toString() );*/
-        new validar_datos().execute("072", "zita", "yMvXX9tWL!j3");
+        new validar_datos().execute( this.cedula_votante.getText().toString(), this.clave_votante.getText().toString(),
+                this.codigo_cne_votante.getText().toString() );
     }
-    public void iniciar_elementos(){
+    private void iniciar_elementos(){
         cedula_votante = findViewById(R.id.ver_cedula_3);
         nombres_votante = findViewById(R.id.ver_nombres_3);
         apellidos_votante = findViewById(R.id.ver_apellidos_3);
@@ -67,13 +66,13 @@ public class Validar_datos extends AppCompatActivity {
     // Cambio activity
     private void iniciar_votacion(String resultado){
         if ( resultado.equals("") ){
-            /*String[] datos_i = { cedula_votante.getText().toString(), clave_votante.getText().toString(),
-                    codigo_cne_votante.getText().toString() };*/
-            String[] datos_i = {"072", "zita", "yMvXX9tWL!j3"};
+            String[] datos_i = { cedula_votante.getText().toString(), clave_votante.getText().toString(),
+                    codigo_cne_votante.getText().toString() };
 
             Intent intent = new Intent(this, Inicio_votacion.class );
             intent.putExtra( EXTRA_MESSAGE_2, datos_i );
             startActivity(intent);
+            finish();
         } else {
             mensaje.setText(resultado);
         }
