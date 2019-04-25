@@ -97,7 +97,7 @@ public class Conexion_db {
         // Verifica la existencia del votante y devuelve los nombres/apellidos
         public String[] leer_cedula_votante(String cedula){
             // Nombres y apellidos en string
-            String[] datos = { "", "" };
+            String[] datos = { "", "", "" };
             
             iniciar_conexion();
 
@@ -115,7 +115,7 @@ public class Conexion_db {
                             
                             datos[0] = this.resultado.getString("nombres");
                             datos[1] = this.resultado.getString("apellidos");
-                            
+                            datos[2] = Integer.toString( this.resultado.getInt("estado") ) ;                           
                         }
                     }                  
 
@@ -224,7 +224,6 @@ public class Conexion_db {
             }
 
             anular_puentes();
-            
             
             return validar;
         }
