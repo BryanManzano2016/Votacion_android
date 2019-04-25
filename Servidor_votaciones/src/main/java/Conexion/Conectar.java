@@ -63,7 +63,7 @@ public class Conectar extends Thread{
         while(true) 
         {
             
-            try(Socket server = serverSocket.accept()) {
+            try(Socket server = serverSocket.accept()) {                
                 
                 // Verifica si existe cliente
                 Cliente cliente_entrante = new Cliente( server.getInetAddress().toString() );
@@ -71,7 +71,6 @@ public class Conectar extends Thread{
                 // Si se excede de las 20 solicitudes lo rechaza
                 if( validar_cliente )
                     continue;
-                
                 // Lectura
                 DataInputStream input = new DataInputStream( server.getInputStream() );
                 
@@ -257,7 +256,7 @@ public class Conectar extends Thread{
         boolean validar = false;
         for ( Cliente c: this.ips ) 
         {
-            if( cliente.getDireccion().equals(c.getDireccion())){
+            if( cliente.getDireccion().equals(c.getDireccion()) ){
                 c.aumentar_solicitudes();
                 validar = true;
                 break;
@@ -301,19 +300,18 @@ public class Conectar extends Thread{
                 try {
                     Thread.sleep(this.valor * 1000);
                 } catch (InterruptedException ex) {}
+                
                 if( ips_sancionadas.size() > 0 ){
                     for (String clave: ips_sancionadas.keySet()) {
+                        
                         int segundos = ips_sancionadas.get(clave);
                         ips_sancionadas.replace(clave, segundos + this.valor); 
-                        
-                        System.out.println( ips_sancionadas.get(clave) );
                         
                         for( Cliente cliente: ips ){
                             if( cliente.getDireccion().equals(clave) && cliente.getSolicitudes() >= 20 
                                     && ips_sancionadas.get(clave) >= this.valor * 60 ){
                                 ips.remove(cliente);
                                 ips_sancionadas.remove(clave);
-                                System.out.println("desbloqueado");
                                 break;
                             }    
                         }
@@ -324,3 +322,11 @@ public class Conectar extends Thread{
     }
     
 }
+
+/*
+System.out.println("-----");
+for( Cliente c: this.ips){
+    System.out.println(c.getDireccion() + ", " + c.getSolicitudes());
+}                
+System.out.println("-----");
+*/

@@ -6,7 +6,7 @@ public class Cliente {
     private int solicitudes;
     public Cliente(String direccion_c) {
         this.direccion = direccion_c;
-        solicitudes = 1;
+        solicitudes = 0;
     }
     public void aumentar_solicitudes(){
         this.solicitudes++;
