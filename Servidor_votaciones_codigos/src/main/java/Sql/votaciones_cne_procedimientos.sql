@@ -119,8 +119,17 @@ DELIMITER $$
 		END$$
 DELIMITER ;
 
+# Contar votos					
 
-
+DELIMITER $$
+	CREATE PROCEDURE obtener_votacion()
+		BEGIN			
+			SELECT can.nombres_candidatos_presidente AS nombres, can.apellidos_candidatos_presidente AS apellidos,
+				nro AS numero, can.codigo_candidato_presidente AS codigo
+				FROM votos_candidato vot, candidatos_presidente can
+				WHERE vot.codigo = can.codigo_candidato_presidente;
+		END$$
+DELIMITER ;
 
 
 
