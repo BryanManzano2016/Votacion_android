@@ -320,6 +320,30 @@ public class Conectar extends Thread{
             }
         }
     }
+
+    private void conteo_votos(){
+        iniciar_conexion_db();
+        this.candidatos_votos = this.conector_db.obtener_votos();
+        fin_conexion_db();
+        if( this.candidatos_votos.size() > 0 ){
+            JSONObject json_enviar = new JSONObject();
+            JSONArray datos_candidatos = new JSONArray();
+            for( Candidato_resultado candidato: this.candidatos_votos){
+                JSONArray candidato_array = new JSONArray();      
+                candidato_array.put(candidato.getNombre_completo());
+                candidato_array.put(candidato.getCodigo());
+                candidato_array.put(candidato.getNro_votos());
+                datos_candidatos.put(candidato_array);
+            }
+            json_enviar.put("votos", datos_candidatos);
+            json_enviar.put("usuario", this.usuario);
+            json_enviar.put("contrasena", this.contrasena);
+            json_enviar.put("peticion", "envio_servidor_paquete");
+            
+            enviar_servidores(json_enviar);
+        }
+    }    
+    
     
 }
 
