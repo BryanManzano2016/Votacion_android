@@ -227,6 +227,26 @@ public class Conexion_db {
             
             return validar;
         }
+    
+        public ArrayList<Candidato_resultado> obtener_votos(){
+            ArrayList<Candidato_resultado> resultados = new ArrayList<>();
+            
+            iniciar_conexion();
+            if (this.conexion != null){
+
+                try{
+                    
+                    this.statement = conexion.prepareCall( "{call obtener_votacion()}" );
+                    this.resultado = this.statement.executeQuery();
+                    while ( this.resultado.next() ) {
+                        resultados.add(new Candidato_resultado( this.resultado.getString("nombres") + " " +
+                                this.resultado.getString("apellidos"), this.resultado.getInt("codigo"),
+                                this.resultado.getInt("numero")));
+                    }                     
+                }catch(SQLException ex){}
+            }            
+            return resultados;
+        }    
 
 }
 // '072', 'Doris Boris', 'Anton Soria', '0', 'yMvXX9tWL!j3', '6'
